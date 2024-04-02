@@ -1,37 +1,14 @@
-import { Navbar, NavbarBrand, Collapse, NavbarToggler, Nav, NavItem} from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { Navbar, NavbarBrand } from 'reactstrap';
 import Logo from '../images/Logo.svg'
-import { useState } from 'react';
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
     
     return(
-        <Navbar color='primary' sticky='top' expand='md'>
-            <NavbarBrand classname='ms-5' href='/'>
-                <img src={Logo} alt='City Compass Logo' className='float-start' />
-                <h1 className='mt-1'>City Compass</h1>
+        <Navbar fixed='top' expand='md' className='nav'>
+            <NavbarBrand classname='ms-5 bg-dark' href='/'>
+                <img src={Logo} alt='City Compass Logo' className='float-start me-3' width='50px' height='50px'/>
+                <h4 className='mt-2 brand'>City Compass</h4>
             </NavbarBrand>
-            <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
-            <Collapse isOpen={menuOpen} navbar>
-                <Nav className='ms-auto' navbar>
-                    <NavItem>
-                        <NavLink className='nav-link' to='/'>
-                             Home
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className='nav-link' to='/about'>
-                             About
-                        </NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink className='nav-link' to='/contact'>
-                             Contact Us
-                        </NavLink>
-                    </NavItem>
-                </Nav>
-            </Collapse>
         </Navbar>
     );
 };
